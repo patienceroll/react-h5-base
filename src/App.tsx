@@ -1,30 +1,25 @@
-import React from "react";
-import logo from "./logo.svg";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Pay from "./pages/pay";
+import Page404 from "./pages/404";
 
 import useEnv from "@/hook/use-env";
 
 import "./App.css";
 
 function App() {
-  const env = useEnv()
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/pay",
+      element: <Pay />,
+    },
+    {
+      path: "*",
+      element: <Page404 />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
