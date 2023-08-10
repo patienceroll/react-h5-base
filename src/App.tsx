@@ -1,8 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+
+import useEnv from "@/hook/use-env";
+
+import "./App.css";
 
 function App() {
+  const env = useEnv()
   return (
     <div className="App">
       <header className="App-header">

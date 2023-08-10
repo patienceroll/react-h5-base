@@ -28,6 +28,23 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      function useEnv() {
+        const ua = navigator.userAgent.toLowerCase();
+        return {
+          weixin: /MicroMessenger/i.test(ua),
+          alipay: /AlipayClient/i.test(ua),
+          unionpay: /CloudPay/i.test(ua),
+        };
+      }
+
+      const { weixin, alipay, unionpay } = useEnv();
+      if (unionpay ) {
+        const script = document.createElement("script");
+        script.src = "https://open.95516.com/s/open/js/upsdk.js";
+        document.body.append(script);
+      }
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
