@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "react-app"
+  ],
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "jsx-quotes": "off",
+    "react/jsx-pascal-case": "off",
+    "import/first": "off",
+    "react/no-children-prop": "off",
+    "react/jsx-indent-props": "off",
+    "react-hooks/rules-of-hooks": "warn",
+    "import/no-duplicates": "warn",
+    "@typescript-eslint/no-shadow": "warn",
+    "import/no-anonymous-default-export":"off"
+  }
+}

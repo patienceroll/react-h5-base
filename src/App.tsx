@@ -10,6 +10,7 @@ function App() {
     {
       path: "/pay",
       element: <Pay />,
+      
     },
     {
       path: "*",
