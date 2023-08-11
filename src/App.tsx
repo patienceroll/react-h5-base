@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Pay from "./pages/pay";
-import Page404 from "./pages/404";
+import Pay from "src/pages/pay";
+import Page404 from "src/pages/404";
 
 import "./App.css";
 
