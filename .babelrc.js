@@ -1,7 +1,7 @@
 module.exports = {
-  // presets: [
-  //   "react-app"
-  // ],
+  presets: [
+    "react-app"
+  ],
   plugins: [
     [
       'import',

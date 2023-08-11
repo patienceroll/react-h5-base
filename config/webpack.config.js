@@ -56,10 +56,6 @@ const imageInlineSizeLimit = parseInt(
 const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 
-const useTailwind = fs.existsSync(
-  path.join(paths.appPath, 'tailwind.config.js')
-);
-
 
 const swSrc = paths.swSrc;
 
@@ -110,8 +106,8 @@ module.exports = function (webpackEnv) {
 
             ident: 'postcss',
             config: false,
-            plugins: !useTailwind
-              ? [
+            plugins:
+              [
                 'postcss-flexbugs-fixes',
                 [
                   'postcss-preset-env',
@@ -122,22 +118,27 @@ module.exports = function (webpackEnv) {
                     stage: 3,
                   },
                 ],
-
                 'postcss-normalize',
-              ]
-              : [
-                'tailwindcss',
-                'postcss-flexbugs-fixes',
                 [
-                  'postcss-preset-env',
-                  {
-                    autoprefixer: {
-                      flexbox: 'no-2009',
-                    },
-                    stage: 3,
-                  },
-                ],
-              ],
+                  'postcss-px-to-viewport', {
+                    unitToConvert: 'px',
+                    viewportWidth: 750,
+                    unitPrecision: 5,
+                    propList: ['*'],
+                    viewportUnit: 'vw',
+                    fontViewportUnit: 'vw',
+                    selectorBlackList: [],
+                    minPixelValue: 1,
+                    mediaQuery: false,
+                    replace: true,
+                    exclude: [],
+                    landscape: false,
+                    landscapeUnit: 'vw',
+                    landscapeWidth: 568
+                  }
+                ]
+              ]
+
           },
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
         },
@@ -270,7 +271,6 @@ module.exports = function (webpackEnv) {
       },
       plugins: [
         new ModuleScopePlugin(paths.appSrc, [
-          paths.appPackageJson,
           reactRefreshRuntimeEntry,
           reactRefreshWebpackPluginRuntimeEntry,
           babelRuntimeEntry,
