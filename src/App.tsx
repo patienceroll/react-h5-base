@@ -3,8 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Pay from "./pages/pay";
 import Page404 from "./pages/404";
 
-import useEnv from "@/hook/use-env";
-
 import "./App.css";
 
 function App() {

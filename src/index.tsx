@@ -5,12 +5,12 @@ import App from "./App";
 import "react-vant/es/styles";
 import "./index.css";
 
-
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const rootHtmlelement = document.getElementById("root");
+if (rootHtmlelement) {
+  const root = ReactDOM.createRoot(rootHtmlelement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}
