@@ -69,3 +69,11 @@ declare module '*.module.sass' {
   const classes: { readonly [key: string]: string };
   export default classes;
 }
+
+
+interface BaseResponse<T = null, Addtion = null> {
+  code: string | number;
+  data: T;
+  message: string;
+  addtion: Addtion;
+}
