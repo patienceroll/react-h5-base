@@ -128,7 +128,7 @@ module.exports = function (webpackEnv) {
                     minPixelValue: 1,
                     mediaQuery: false,
                     replace: true,
-                    exclude: [],
+                    exclude: [/react-vant/],
                     landscape: false,
                     landscapeUnit: 'vw',
                     landscapeWidth: 568
@@ -412,6 +412,8 @@ module.exports = function (webpackEnv) {
                 modules: {
                   mode: 'icss',
                 },
+              }).concat({
+                loader: require.resolve('less-loader'),
               }),
               sideEffects: true,
             },

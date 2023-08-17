@@ -1,6 +1,8 @@
 /// <reference types="node" />
 /// <reference types="react" />
 /// <reference types="react-dom" />
+/// <reference types="@types/wx-js-sdk-browser" />
+
 
 declare namespace NodeJS {
   interface ProcessEnv {

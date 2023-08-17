@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 import "react-vant/es/styles";
+import './react-vant-theme.css'
 import "./index.css";
 
 const rootHtmlelement = document.getElementById("root");

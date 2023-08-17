@@ -101,8 +101,9 @@ export function del<T>(...argument: Parameters<typeof Fetch>) {
 }
 
 function base(path: string) {
-  throw new Error("错误的环境");
+  return "https://integratedapi.hicootest.com" + path;
 }
+
 function mock(path: string) {
   return `https://yapi.hicoofinal.com/mock/956` + path;
 }

@@ -39,9 +39,14 @@
       }
 
       const { weixin, alipay, unionpay } = useEnv();
-      if (unionpay ) {
+      if (unionpay) {
         const script = document.createElement("script");
         script.src = "https://open.95516.com/s/open/js/upsdk.js";
+        document.body.append(script);
+      }
+      if (weixin) {
+        const script = document.createElement("script");
+        script.src = "http://res2.wx.qq.com/open/js/jweixin-1.6.0.js ";
         document.body.append(script);
       }
     </script>
