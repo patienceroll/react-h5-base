@@ -2,6 +2,8 @@ import buildQuery from "./build-query";
 import Fetch, { FetchInit, Params } from "./fetch";
 import { Dialog } from "react-vant";
 
+import Url from "../../../config.json";
+
 const FetchInfo = {
   id: 1,
 };
@@ -105,7 +107,7 @@ export function del<T>(...argument: Parameters<typeof Fetch>) {
 }
 
 function base(path: string) {
-  return "https://integratedapi.hicootest.com" + path;
+  return Url.baseUrl + path;
 }
 
 function mock(path: string) {

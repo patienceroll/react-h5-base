@@ -273,6 +273,7 @@ module.exports = function (webpackEnv) {
           babelRuntimeEntry,
           babelRuntimeEntryHelpers,
           babelRuntimeRegenerator,
+          require.resolve('../config.json')
         ]),
       ],
     },
