@@ -1,5 +1,6 @@
 import buildQuery from "./build-query";
 import Fetch, { FetchInit, Params } from "./fetch";
+import { Dialog } from "react-vant";
 
 const FetchInfo = {
   id: 1,
@@ -55,6 +56,9 @@ function fetchResponse<T>(...argument: Parameters<typeof Fetch>) {
     .catch((err) => {
       if (typeof err === "object" && err.type === "service-error") {
         const { data } = err as { data: BaseResponse };
+        Dialog.alert({
+          message: data.message,
+        });
       } else if (err instanceof DOMException && err.name === "AbortError") {
         // 排除掉 abort 错误
         console.log("用户取消请求");

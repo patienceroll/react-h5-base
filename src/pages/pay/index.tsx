@@ -4,6 +4,8 @@ import { Dialog, Loading } from "react-vant";
 
 import assets from "src/assets";
 import useWeather from "src/hook/use-weather";
+import sdk from "src/sdk";
+import useEnv from "src/hook/use-env";
 
 import * as Api from "src/api/pay";
 
@@ -18,6 +20,8 @@ function Pay(props: {
   const { merchantName, accessToken, authCode, bindId } = props;
   const wheather = useWeather(true);
   const submiting = useWeather();
+  const { weixin } = useEnv();
+
   const [value, setValue] = useState<string>("");
   function onChangeValue(
     val: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | "." | "del"
@@ -59,13 +63,27 @@ function Pay(props: {
     }
     if (!submiting.value) {
       submiting.setTrue();
+
+   
       Api.postPay({
         accessToken,
         bindId,
         authCode,
         appType: "mp",
         orderAmount: value,
-      }).finally(submiting.setFalse);
+      })
+        .then((res) => {
+          if (weixin) {
+            return sdk.wx.getBrandWCPayRequest({
+              timestamp: Number(res.data.wechatpay.timeStamp),
+              nonceStr: res.data.wechatpay.nonceStr,
+              package: res.data.wechatpay.package,
+              paySign: res.data.wechatpay.paySign,
+            });
+          }
+          return Promise.reject();
+        })
+        .finally(submiting.setFalse);
     }
   }
 
@@ -147,6 +165,7 @@ export default function () {
   const authCode = search.get("authCode") as string;
   const accessToken = search.get("accessToken") as string;
 
+  
   return (
     <Suspense
       fallback={
