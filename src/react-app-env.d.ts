@@ -77,5 +77,13 @@ interface BaseResponse<T = null, Addtion = null> {
   code: string | number;
   data: T;
   message: string;
-  addtion: Addtion;
+  additional: Addtion;
+}
+
+interface List<T, Additional = undefined> {
+  current: number;
+  pageSize: number;
+  count: number;
+  list: T[];
+  additional: Additional;
 }

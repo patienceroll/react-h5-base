@@ -6,6 +6,7 @@ import "react-vant/es/styles";
 import './react-vant-theme.css'
 import "./index.css";
 
+
 const rootHtmlelement = document.getElementById("root");
 if (rootHtmlelement) {
   const root = ReactDOM.createRoot(rootHtmlelement);
