@@ -1,19 +1,12 @@
-import React, {
-  Suspense,
-  memo,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-} from "react";
+import React, { memo } from "react";
 import { useLocation, useSearchParams, useNavigate } from "react-router-dom";
-import { Loading } from "react-vant";
 
-import useEnv from "src/hook/use-env";
 import assets from "src/assets";
 
-import { getSightDetail, getSights } from "src/api/sight";
+import { getSights } from "src/api/sight";
 import usePage from "src/hook/use-page";
 import useInitRun from "src/hook/use-init-run";
+import NavBar from "src/components/nav-bar";
 
 import "./index.less";
 
@@ -28,22 +21,8 @@ export default memo(function () {
   const pi = search.get("pi") as string;
   const pt = search.get("pt") as string;
 
-  const { weixin } = useEnv();
-
-  const {
-    loading,
-    params,
-    list,
-    config,
-    reachBottom,
-    additional,
-    getList,
-    nextPage,
-    load,
-    resetPageLoad,
-    setList,
-    slientReload,
-  } = usePage(getSights);
+  const { params, list, additional, nextPage, resetPageLoad } =
+    usePage(getSights);
 
   useInitRun(() => {
     params.current.at = at;
@@ -56,13 +35,10 @@ export default memo(function () {
     });
   });
 
-  useLayoutEffect(() => {
-    document.title = "加载中...";
-  }, []);
-
   return (
     <div className="page-sights-list">
-      {weixin && <img className="p4" src={assets.p4} />}
+      <NavBar title={additional.current?.title} />
+      <img className="p4" src={assets.p4} />
       <div
         className="list"
         onScroll={(e) => {
@@ -95,7 +71,7 @@ export default memo(function () {
             <div className="content">
               <div className="title">{i.title}</div>
               <div className="price">票价: {i.price}元</div>
-              <div className="description">简介: {i.description}</div>
+              <div className="description">简介: {i.brief}</div>
             </div>
           </div>
         ))}

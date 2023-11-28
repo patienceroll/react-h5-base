@@ -1,4 +1,65 @@
 .page-sights-detail {
+  min-height: 100vh;
+  background-size: 100% 436px;
+  background-repeat: no-repeat;
+  background-image: url(https://assets.uphicoo.com/images/chang-shou-gu-zhen/h5/3.png);
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f3f0;
+
+  .price {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 40px;
+    padding: 30px 24px 0;
+  }
+
+  .img-view {
+    padding: 26px 24px;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  .view {
+    flex-shrink: 0;
+    width: 466px;
+    height: 704px;
+  }
+
+  .list {
+    height: 704px;
+    margin-left: 4px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .list-icon {
+    width: 232px;
+    height: 232px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 4px;
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+
+  .description {
+    margin: 24px auto 0;
+    width: 702px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: #EBEEEF;
+    font-size: 32px;
+    padding: 24px;
+    margin-bottom: 100px;
+    color: #415167;
+    img {
+      max-width: 100%;
+    }
+  }
+
   .page-sights-loading {
     height: 100vh;
     width: 100vw;

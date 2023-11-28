@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useMemo } from "react";
 import { Loading } from "react-vant";
 
 import Pay from "src/pages/pay";
@@ -11,7 +10,7 @@ import ErrorElement from "./components/error-element";
 import "./App.css";
 
 /** 和后端以及运维约定,此项目路由必须由path: '/h5' 开始 */
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/h5",
     children: [
