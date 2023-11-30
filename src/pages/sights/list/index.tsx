@@ -38,7 +38,8 @@ export default memo(function () {
   return (
     <div className="page-sights-list">
       <NavBar title={additional.current?.title} />
-      <img className="p4" src={assets.p4} />
+      <div className="des">{additional.current?.description}</div>
+      {/* <img className="p4" src={assets.p4} /> */}
       <div
         className="list"
         onScroll={(e) => {
@@ -70,7 +71,9 @@ export default memo(function () {
             <img className="main-img" src={i.masterImage} />
             <div className="content">
               <div className="title">{i.title}</div>
-              <div className="price">票价: {i.price}元</div>
+              <div className="price">
+                票价: {i.price ? `${i.price}元` : "免费"}
+              </div>
               <div className="description">简介: {i.brief}</div>
             </div>
           </div>

@@ -29,7 +29,7 @@ function Component(props: { detail: SightDetail }) {
     <div>
       <NavBar title={detail.title} />
       <div className="price">
-        票价: <span style={{ color: "#d80000" }}>{detail.price}元</span>
+        票价: <span style={{ color: "#d80000" }}>{detail.price ? `${detail.price}元` : "免费"}</span>
       </div>
       <div className="img-view">
         <img className="view" src={view.fileUrl} />
