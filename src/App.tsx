@@ -4,6 +4,7 @@ import { Loading } from "react-vant";
 import Pay from "src/pages/pay";
 import SightList from "src/pages/sights/list";
 import SightDetail from "src/pages/sights/detail";
+import PhoneNumberSync from "./pages/phone-number-sync";
 import Page404 from "src/pages/404";
 import ErrorElement from "./components/error-element";
 
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             element: <SightList />,
           },
         ],
+      },
+      {
+        path: 'phone-number-sync',
+        element: <PhoneNumberSync />
       },
       {
         path: "*",
