@@ -36,8 +36,8 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: 'phone-number-sync',
-        element: <PhoneNumberSync />
+        path: "phone-number-sync",
+        element: <PhoneNumberSync />,
       },
       {
         path: "*",
