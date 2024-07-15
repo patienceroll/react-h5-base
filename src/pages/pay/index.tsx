@@ -3,7 +3,7 @@ import React, { Suspense, useState } from "react";
 import { Dialog, Loading } from "react-vant";
 
 import assets from "src/assets";
-import useWeather from "src/hook/use-weather";
+import useWeather from "src/hook/use-wather";
 import sdk from "src/sdk";
 import useEnv from "src/hook/use-env";
 
@@ -18,8 +18,8 @@ function Pay(props: {
   merchantName: string;
 }) {
   const { merchantName, accessToken, authCode, bindId } = props;
-  const wheather = useWeather(true);
-  const submiting = useWeather();
+  const [wheather] = useWeather(true);
+  const [submiting] = useWeather();
   const { weixin } = useEnv();
 
   const [value, setValue] = useState<string>("");
@@ -27,7 +27,7 @@ function Pay(props: {
     val: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | "." | "del"
   ) {
     return function () {
-      if (submiting.value) return;
+      if (submiting.whether) return;
       if (val === "del") {
         if ("0." === value) setValue("");
         else setValue((t) => t.slice(0, t.length - 1));
@@ -61,10 +61,9 @@ function Pay(props: {
       });
       return;
     }
-    if (!submiting.value) {
+    if (!submiting.whether) {
       submiting.setTrue();
 
-   
       Api.postPay({
         accessToken,
         bindId,
@@ -102,7 +101,7 @@ function Pay(props: {
       </div>
       <div
         className="pad"
-        style={{ bottom: wheather.value ? undefined : "-100%" }}
+        style={{ bottom: wheather.whether ? undefined : "-100%" }}
       >
         <div className="row">
           <div className="key" onClick={onChangeValue(1)}>
@@ -151,7 +150,7 @@ function Pay(props: {
             <img className="del" alt="del" src={assets.p2} />
           </div>
           <div className="confirm" onClick={confirm}>
-            {submiting.value ? <Loading /> : <span>确认支付</span>}
+            {submiting.whether ? <Loading /> : <span>确认支付</span>}
           </div>
         </div>
       </div>
@@ -165,7 +164,6 @@ export default function () {
   const authCode = search.get("authCode") as string;
   const accessToken = search.get("accessToken") as string;
 
-  
   return (
     <Suspense
       fallback={

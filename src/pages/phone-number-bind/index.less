@@ -3,6 +3,7 @@
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 
   .top {
     flex-shrink: 0;
@@ -19,10 +20,33 @@
     flex: 1;
     font-size: 44px;
     text-align: center;
-    padding: 44px;
     box-sizing: border-box;
-    white-space:wrap;
+    white-space: wrap;
     word-break: break-all;
+  }
+
+  .input {
+    height: 136px;
+    width: 100%;
+    border: none;
+    padding-left: 184px;
+    font-size: 32px;
+    font-weight: 400;
+
+    &::placeholder {
+      color: #aeaeae;
+      font-size: 32px;
+      font-weight: 400;
+    }
+  }
+
+  .label {
+    position: absolute;
+    top: 46px;
+    left: 52px;
+    font-weight: 400;
+    font-size: 32px;
+    color: #000000;
   }
 
   .bottom {
@@ -31,7 +55,7 @@
   }
 
   .tip {
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 20px 20px 20px 20px;
     box-sizing: border-box;
     padding: 35px 0px;
@@ -44,6 +68,6 @@
   }
 
   .button {
-    background: linear-gradient( 90deg, #5F9FDE 0%, #337ED9 100%);
+    background: linear-gradient(90deg, #5f9fde 0%, #337ed9 100%);
   }
 }
