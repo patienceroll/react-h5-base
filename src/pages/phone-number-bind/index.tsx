@@ -4,6 +4,7 @@ import { Button, Dialog } from "react-vant";
 
 import { getBinedPhone, postBindedPhone } from "src/api/phone-number-bind";
 import useWather from "src/hook/use-wather";
+import assets from "src/assets";
 
 import "./index.less";
 
@@ -65,9 +66,23 @@ export default function () {
     });
   }, [binded, getBindedPhoneNumber]);
 
+  useEffect(() => {
+    document.title = "快捷核销";
+  }, []);
+
   return (
     <div className="page-phone-number-sync">
-      <div className="top">为便捷核销优惠券请绑定手机号</div>
+      <div className="top">
+        <div>
+        <div className="p7">
+          <img src={assets.p7} />
+        </div>
+        &nbsp; &nbsp;
+        <div className="text">
+          <span>为便捷核销优惠券请绑定手机号</span>
+        </div>
+        </div>
+      </div>
       <div className="body">
         <div style={{ position: "relative" }}>
           <input
