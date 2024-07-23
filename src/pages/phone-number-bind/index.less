@@ -1,0 +1,73 @@
+.page-phone-number-sync {
+  height: 100vh;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  .top {
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #ffecec 0%, #f9f9f9 100%);
+    height: 96px;
+    font-weight: 400;
+    font-size: 30px;
+    color: #ff5050;
+    line-height: 96px;
+    text-align: center;
+  }
+
+  .body {
+    flex: 1;
+    font-size: 44px;
+    text-align: center;
+    box-sizing: border-box;
+    white-space: wrap;
+    word-break: break-all;
+  }
+
+  .input {
+    height: 136px;
+    width: 100%;
+    border: none;
+    padding-left: 184px;
+    font-size: 32px;
+    font-weight: 400;
+
+    &::placeholder {
+      color: #aeaeae;
+      font-size: 32px;
+      font-weight: 400;
+    }
+  }
+
+  .label {
+    position: absolute;
+    top: 46px;
+    left: 52px;
+    font-weight: 400;
+    font-size: 32px;
+    color: #000000;
+  }
+
+  .bottom {
+    flex-shrink: 0;
+    padding: 0 32px 100px;
+  }
+
+  .tip {
+    background: #ffffff;
+    border-radius: 20px 20px 20px 20px;
+    box-sizing: border-box;
+    padding: 35px 0px;
+    font-weight: 400;
+    font-size: 28px;
+    color: #292929;
+    line-height: 48px;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .button {
+    background: linear-gradient(90deg, #5f9fde 0%, #337ed9 100%);
+  }
+}

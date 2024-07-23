@@ -14,5 +14,8 @@ export default {
         });
       });
     },
+    closeWindow() {
+      wx.closeWindow();
+    },
   },
 };
