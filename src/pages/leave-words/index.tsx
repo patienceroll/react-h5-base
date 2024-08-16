@@ -46,7 +46,7 @@ export default function () {
       className="page-leave-words"
       style={{ backgroundImage: `url(${assets.p8})` }}
     >
-      <Swiper vertical autoplay={false} loop style={{ height: "100%" }}>
+      <Swiper vertical autoplay loop style={{ height: "100%" }}>
         {renderData.map((items) => (
           <Swiper.Item>
             {items.map((item) => (
