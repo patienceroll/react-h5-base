@@ -4,6 +4,8 @@ import p3 from "./3.svg";
 import p5 from "./5.png";
 import p6 from "./6.png";
 import p7 from "./7.png";
+import p8 from './8.png';
+import p9 from './9.png';
 
 export default {
   p1,
@@ -12,5 +14,7 @@ export default {
   p4: "https://assets.uphicoo.com/images/chang-shou-gu-zhen/h5/1.png",
   p5,
   p6,
-  p7
+  p7,
+  p8,
+  p9
 };

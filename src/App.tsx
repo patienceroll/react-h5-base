@@ -4,6 +4,7 @@ import { Loading } from "react-vant";
 import Pay from "src/pages/pay";
 import SightList from "src/pages/sights/list";
 import SightDetail from "src/pages/sights/detail";
+import LeaveWords from 'src/pages/leave-words';
 import PhoneNumberSync from "./pages/phone-number-bind";
 import PhoneNumberSyncSuccess from "./pages/phone-number-bind/success";
 import Page404 from "src/pages/404";
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "phone-number-bind/success",
         element: <PhoneNumberSyncSuccess />,
+      },
+      {
+        path: 'leave-words',
+        element: <LeaveWords />
       },
       {
         path: "*",
