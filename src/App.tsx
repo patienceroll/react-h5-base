@@ -7,6 +7,7 @@ import SightDetail from "src/pages/sights/detail";
 import LeaveWords from 'src/pages/leave-words';
 import PhoneNumberSync from "./pages/phone-number-bind";
 import PhoneNumberSyncSuccess from "./pages/phone-number-bind/success";
+import Agreement from "./pages/agreement";
 import Page404 from "src/pages/404";
 import ErrorElement from "./components/error-element";
 
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "phone-number-bind/success",
         element: <PhoneNumberSyncSuccess />,
+      },
+      {
+        path: "agreement",
+        element: <Agreement />,
       },
       {
         path: 'leave-words',
