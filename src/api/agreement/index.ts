@@ -4,5 +4,5 @@ export function getAgreement(id: string) {
     id: number;
     agreementName: string;
     agreementContent: string;
-  }>(fetch.base(`/integrated/v1/mini/merchant/agreement/anyone/content/${id}`));
+  }>(fetch.base(`/integrated/v1/boss/agreement/anyone/content/${id}`));
 }
