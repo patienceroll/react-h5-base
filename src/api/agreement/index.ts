@@ -1,6 +1,6 @@
 import fetch from "src/utils/fetch";
 export function getAgreement(id: string) {
-  return fetch.post<{
+  return fetch.get<{
     id: number;
     agreementName: string;
     agreementContent: string;
