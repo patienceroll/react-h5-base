@@ -65,7 +65,7 @@ export default function () {
                   {item.banner && <img className="banner" src={item.banner} />}
                   <div className="bottom">
                     <span className="topicTitle">#{item.topicTitle}</span>
-                    <span>{item.title}</span>
+                    <span>{item.content.slice(0,30)}{item.content.length > 31 && '...'}</span>
                     {item.merchantId > 0 && (
                       <span className="merchantName">@{item.merchantName}</span>
                     )}

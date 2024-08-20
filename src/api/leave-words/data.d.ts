@@ -65,4 +65,5 @@ type LeaveWords = {
   userId: number;
   merchantName:string
   merchantId: number
+  content:string
 };
