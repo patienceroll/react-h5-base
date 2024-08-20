@@ -49,9 +49,9 @@ export default function () {
       className="page-leave-words"
       style={{ backgroundImage: `url(${assets.p8})` }}
     >
-      <Swiper vertical autoplay={10000} loop indicator style={{ height: 3125 }}>
+      <Swiper vertical autoplay={10000} loop  style={{ height: 3125 }}>
         {renderData.map((items) => (
-          <Swiper.Item>
+          <Swiper.Item key={items[0].id}>
             {items.map((item) => (
               <div className="item-wrapper" key={item.id}>
                 <div className="item">
