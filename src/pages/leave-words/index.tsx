@@ -15,7 +15,7 @@ export default function () {
   const ii = search.get("ii")!;
 
   const [datas, setDatas] = useState<LeaveWords[]>([]);
-  const swiper = useRef<SwiperInstance>(null)
+  const swiper = useRef<SwiperInstance>(null);
 
   function getData() {
     leaveWords({ at, no, tt, pageSize: 20, current: 1, ii }).then((res) => {
@@ -27,10 +27,10 @@ export default function () {
     getData();
     setInterval(() => {
       getData();
-    }, 1000 * 60 * 60);
+    }, 1000 * 60 * 3);
     setInterval(() => {
-      swiper.current?.swipeNext()
-    }, 10000);
+      swiper.current?.swipeNext();
+    }, 1000 * 10);
   }, []);
 
   const renderData = useMemo(() => {
@@ -53,7 +53,7 @@ export default function () {
       className="page-leave-words"
       style={{ backgroundImage: `url(${assets.p8})` }}
     >
-      <Swiper ref={swiper} className="swiper" vertical autoplay={false} loop >
+      <Swiper ref={swiper} className="swiper" vertical autoplay={false} loop>
         {renderData.map((items) => (
           <Swiper.Item key={items[0].id}>
             {items.map((item) => (
