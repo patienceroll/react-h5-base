@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Swiper } from "react-vant";
+import { Swiper, SwiperInstance } from "react-vant";
 
 import { leaveWords } from "src/api/leave-words";
 import assets from "src/assets";
@@ -15,6 +15,7 @@ export default function () {
   const ii = search.get("ii")!;
 
   const [datas, setDatas] = useState<LeaveWords[]>([]);
+  const swiper = useRef<SwiperInstance>(null)
 
   function getData() {
     leaveWords({ at, no, tt, pageSize: 20, current: 1, ii }).then((res) => {
@@ -25,8 +26,11 @@ export default function () {
   useEffect(() => {
     getData();
     setInterval(() => {
-      getData()
+      getData();
     }, 1000 * 60 * 60);
+    setInterval(() => {
+      swiper.current?.swipeNext()
+    }, 10000);
   }, []);
 
   const renderData = useMemo(() => {
@@ -49,7 +53,7 @@ export default function () {
       className="page-leave-words"
       style={{ backgroundImage: `url(${assets.p8})` }}
     >
-      <Swiper vertical autoplay={10000} loop  style={{ height: 3125 }}>
+      <Swiper ref={swiper} className="swiper" vertical autoplay={false} loop >
         {renderData.map((items) => (
           <Swiper.Item key={items[0].id}>
             {items.map((item) => (
